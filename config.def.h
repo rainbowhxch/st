@@ -8,8 +8,8 @@
 static char *font = "DroidSansMono Nerd Font:pixelsize=20:antialias=true:autohint=true";
 /* Spare fonts */
 static char *font2[] = {
-/*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
-/*	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
+	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true",
+	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true",
 };
 
 static int borderpx = 2;
@@ -144,13 +144,20 @@ static unsigned int defaultcs = 256;
 static unsigned int defaultrcs = 257;
 
 /*
- * Default shape of cursor
- * 2: Block ("█")
- * 4: Underline ("_")
- * 6: Bar ("|")
- * 7: Snowman ("☃")
+ * https://invisible-island.net/xterm/ctlseqs/ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-q.1D81
+ * Default style of cursor
+ * 0: Blinking block
+ * 1: Blinking block (default)
+ * 2: Steady block ("█")
+ * 3: Blinking underline
+ * 4: Steady underline ("_")
+ * 5: Blinking bar
+ * 6: Steady bar ("|")
+ * 7: Blinking st cursor
+ * 8: Steady st cursor
  */
-static unsigned int cursorshape = 2;
+static unsigned int cursorstyle = 1;
+static Rune stcursor = 0x2603; /* snowman (U+2603) */
 
 /*
  * Default columns and rows numbers
@@ -194,6 +201,14 @@ static MouseShortcut mshortcuts[] = {
 	{ XK_ANY_MOD,           Button5, ttysend,        {.s = "\005"} },
 };
 
+/* externalpipe scripts */
+static char *openurlcmd[] = { "/bin/sh", "-c",
+	"linkgrabber.sh",
+	"externalpipe", NULL };
+static char *editscreen[] = { "/bin/sh", "-c",
+	"editscreen.sh",
+	"externalpipe", NULL };
+
 /* Internal keyboard shortcuts. */
 #define MODKEY Mod1Mask
 #define TERMMOD (ControlMask|ShiftMask)
@@ -217,6 +232,7 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,				XK_O,           opencopied,     {.v = "xdg-open"} },
 	{ TERMMOD,				XK_I,           kscrollup,      {.i = -1} },
 	{ TERMMOD,				XK_K,           kscrolldown,    {.i = -1} },
+	{ TERMMOD,				XK_H,			externalpipe,	{ .v = openurlcmd } },
 };
 
 /*

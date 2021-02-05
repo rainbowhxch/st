@@ -5,11 +5,10 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "DroidSansMono Nerd Font:pixelsize=20:antialias=true:autohint=true";
+static char *font = "FiraCode Nerd Font:pixelsize=22:antialias=true:autohint=true";
 /* Spare fonts */
 static char *font2[] = {
-	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true",
-	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true",
+    "mononoki Nerd Font:pixelsize=20:antialias=true:autohint=true",
 };
 
 static int borderpx = 2;
@@ -100,37 +99,37 @@ char *termname = "st-256color";
 unsigned int tabspaces = 4;
 
 /* bg opacity */
-float alpha = 1;
+float alpha = 1.00;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"#232731",
-	"#ec7875",
-	"#00b19f",
-	"#edb83f",
-	"#487799",
-	"#b9637e",
-	"#348396",
-	"#6d8895",
+    /* 8 normal colors */
+    [0] = "#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
+    [1] = "#cc241d", /* red     */
+    [2] = "#98971a", /* green   */
+    [3] = "#d79921", /* yellow  */
+    [4] = "#458588", /* blue    */
+    [5] = "#b16286", /* magenta */
+    [6] = "#689d6a", /* cyan    */
+    [7] = "#a89984", /* white   */
 
-	/* 8 bright colors */
-	"#6f798c",
-	"#ec6798",
-	"#61c766",
-	"#ebd369",
-	"#00c7df",
-	"#be78d1",
-	"#3c97ad",
-	"#8c8c8c",
+    /* 8 bright colors */
+    [8]  = "#928374", /* black   */
+    [9]  = "#fb4934", /* red     */
+    [10] = "#b8bb26", /* green   */
+    [11] = "#fabd2f", /* yellow  */
+    [12] = "#83a598", /* blue    */
+    [13] = "#d3869b", /* magenta */
+    [14] = "#8ec07c", /* cyan    */
+    [15] = "#ebdbb2", /* white   */
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#c4c7c5", /* cursor */
-	"#2f343f", /* reverse cursor */
-	"#2f343f", /* background */
-	"#c4c7c5", /* foreground */
+	"#ebdbb2", /* cursor */
+	"#282828", /* reverse cursor */
+	"#282828", /* background */
+	"#ebdbb2", /* foreground */
 };
 
 

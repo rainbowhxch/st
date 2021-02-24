@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "FiraCode Nerd Font:pixelsize=22:antialias=true:autohint=true";
+static char *font = "JetBrainsMono Nerd Font:pixelsize=20:antialias=true:autohint=true";
 /* Spare fonts */
 static char *font2[] = {
     "mononoki Nerd Font:pixelsize=20:antialias=true:autohint=true",
@@ -229,8 +229,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,				XK_X,           invert,         { }       },
 	{ TERMMOD,				XK_Return,      newterm,        {.i =  0} },
 	{ TERMMOD,				XK_O,           opencopied,     {.v = "xdg-open"} },
-	{ TERMMOD,				XK_I,           kscrollup,      {.i = -1} },
-	{ TERMMOD,				XK_K,           kscrolldown,    {.i = -1} },
+	{ TERMMOD,				XK_K,           kscrollup,      {.i = -1} },
+	{ TERMMOD,				XK_J,           kscrolldown,    {.i = -1} },
 	{ TERMMOD,				XK_H,			externalpipe,	{ .v = openurlcmd } },
 };
 

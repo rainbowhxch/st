@@ -9,7 +9,7 @@ static char *font =
     "JetBrainsMono Nerd Font:pixelsize=22:antialias=true:autohint=true";
 /* Spare fonts */
 static char *font2[] = {
-    "nonicons:pixelsize=22:antialias=true:autohint=true",
+    "JetBrainsMono Nerd Font:pixelsize=22:antialias=true:autohint=true",
 };
 
 static int borderpx = 2;
@@ -118,7 +118,7 @@ unsigned int tabspaces = 4;
 float alpha = 1.00;
 
 /* Terminal colors (16 first used in escape sequence) */
-#include "./colors/github-dimmed.h"
+#include "./colors/tokyonight-storm.h"
 
 /*
  * Default colors (colorname index)

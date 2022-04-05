@@ -23,9 +23,9 @@ MonitorConfig monitors_config[] = {
     //   >0 : auto absolute pixel size (monitor dpi)
     //   <0 : auto relative points size (monitor dpi)
     // {"DP-1", 0}, // BUG:(size=0): not restored to default after back'n'forth
-    {"eDP-1", 22},  // BUG:(size=0): not restored to default after back'n'forth
-    {"HDMI-1", 22}, // BUG:(ignored DPI=220): = 20 is eqv to 10pt (DPI=110)
-    {"DP-1", 22},
+    {"eDP-1", 30},  // BUG:(size=0): not restored to default after back'n'forth
+    {"HDMI-1", 26}, // BUG:(ignored DPI=220): = 20 is eqv to 10pt (DPI=110)
+    {"DP-1", 32},
 };
 float winmovethreshold = 0.6;
 
@@ -89,6 +89,18 @@ static unsigned int blinktimeout = 800;
 static unsigned int cursorthickness = 2;
 
 /*
+ * 1: render most of the lines/blocks characters without using the font for
+ *    perfect alignment between cells (U2500 - U259F except dashes/diagonals).
+ *    Bold affects lines thickness if boxdraw_bold is not 0. Italic is ignored.
+ * 0: disable (render all U25XX glyphs normally from the font).
+ */
+const int boxdraw = 0;
+const int boxdraw_bold = 0;
+
+/* braille (U28XX):  1: render as adjacent "pixels",  0: use font */
+const int boxdraw_braille = 0;
+
+/*
  * bell volume. It must be a value between -100 and 100. Use 0 for disabling
  * it
  */
@@ -118,7 +130,7 @@ unsigned int tabspaces = 4;
 float alpha = 1.00;
 
 /* Terminal colors (16 first used in escape sequence) */
-#include "./colors/tokyonight-storm.h"
+#include "./colors/gruvbox.h"
 
 /*
  * Default colors (colorname index)
